@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne } from "typeorm"
-import { Favoritos } from "./Favoritos"
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToMany, JoinColumn, OneToMany } from "typeorm"
+import { User } from "./User"
+import { Personajes } from "./Personajes"
 
 @Entity()
 export class Planetas extends BaseEntity {
@@ -27,7 +28,7 @@ export class Planetas extends BaseEntity {
     @Column()
     img_url: string;
 
-    // @ManyToOne(() => User, user => user.planetas)
-    // user: User;
+   @OneToMany(() => Personajes, personajes => personajes.planetas)
+    personajes: Personajes;
 }
 

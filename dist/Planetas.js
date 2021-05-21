@@ -26,6 +26,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 exports.__esModule = true;
 exports.Planetas = void 0;
 var typeorm_1 = require("typeorm");
+var Personajes_1 = require("./Personajes");
 var Planetas = /** @class */ (function (_super) {
     __extends(Planetas, _super);
     function Planetas() {
@@ -63,6 +64,10 @@ var Planetas = /** @class */ (function (_super) {
         typeorm_1.Column(),
         __metadata("design:type", String)
     ], Planetas.prototype, "img_url");
+    __decorate([
+        typeorm_1.OneToMany(function () { return Personajes_1.Personajes; }, function (personajes) { return personajes.planetas; }),
+        __metadata("design:type", Personajes_1.Personajes)
+    ], Planetas.prototype, "personajes");
     Planetas = __decorate([
         typeorm_1.Entity()
     ], Planetas);
